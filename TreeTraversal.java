@@ -11,6 +11,7 @@ public class TreeTraversal{
         }
     }
 
+    // 1. inorder traversal
     public static void inorder(TreeNode root){
         if(root == null) return ;
         inorder(root.left);
@@ -18,6 +19,7 @@ public class TreeTraversal{
         inorder(root.right);
     }
 
+    // 2. preorder traversal
     public static void preorder(TreeNode root){
         if(root == null) return ;
         System.out.print(root.data + " ");
@@ -25,6 +27,7 @@ public class TreeTraversal{
         preorder(root.right);
     }
 
+    // 3. postorder traversal
     public static void postorder(TreeNode root){
         if(root == null) return ;
         postorder(root.left);
@@ -32,6 +35,7 @@ public class TreeTraversal{
         System.out.print(root.data + " ");
     }
 
+    // 4. find height of tree
     public static int height(TreeNode root){
         if(root == null) return 0;
         int leftMax = height(root.left);
@@ -39,17 +43,20 @@ public class TreeTraversal{
         return 1 + Math.max(leftMax , rightMax);
     }
 
+    // 5. count no of nodes in tree
     public static int count(TreeNode root){
         if(root == null) return 0;
         return 1 + count(root.left) + count(root.right);
     }
 
+    // 6. search for a node in tree
     public static boolean search(TreeNode root, int k){
         if(root == null) return false;
         if(root.data == k) return true;
         return search(root.left, k) || search(root.right, k);
     }
 
+    // 7. print nodes of given level 
     public static void printLevel(TreeNode root, int k){
         if(root == null) return ;
         if(k == 1)
@@ -60,6 +67,7 @@ public class TreeTraversal{
         }
     }
 
+    // 8. find the max from all the nodes
     public static int findMax(TreeNode root){
         if(root == null) return Integer.MIN_VALUE;
         int leftMax = findMax(root.left);
@@ -67,18 +75,20 @@ public class TreeTraversal{
         return Math.max(root.data , Math.max(leftMax,rightMax));
     }
 
+    // 9. count no of leaves in tree
     public static int countLeaves(TreeNode root){
         if(root == null) return 0;
         if(root.left == null && root.right == null) return 1;
         return countLeaves(root.left) + countLeaves(root.right);
     }
 
+    // 9. sum of nodes of tree
     public static int sum(TreeNode root){
         if(root == null) return 0;
         return root.data + sum(root.left) + sum(root.right);
     }
 
-    //insert new node in first available position (level-order insertion)
+    // 10. insert new node in first available position (level-order insertion)
     public static TreeNode levelOrderInsertion(TreeNode root, int val){
         TreeNode newNode = new TreeNode(val);
         if(root == null) return newNode;
